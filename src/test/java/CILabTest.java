@@ -2,8 +2,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CILabTest {
 
@@ -27,7 +26,16 @@ public class CILabTest {
     }
     @Test
     public void detectCapitalUseTest2() {
-        fail("Not yet implemented");
+
+        myString.setString("GOOGLE");
+        assertTrue(myString.detectCapitalUse());
+    }
+    @Test
+    public void detectCapitalUseTest3(){
+        myString.setString("google");
+        assertThrows(AssertionError.class,()->{
+            throw new AssertionError("No capitals error");
+        });
     }
 
 
